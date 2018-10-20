@@ -6,7 +6,6 @@ const client = new Discord.Client();
 
 
 client.on('message', message => {
-var prefix = "!"
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
 
@@ -14,17 +13,13 @@ var prefix = "!"
   command = command.slice(prefix.length);
 
   let args = message.content.split(" ").slice(1);
-  if(!args) return message.channel.send(`${prefix}say <words>`);
 
-if (command == "say") {
-if(!message.guild.member(message.author).hasPermission("ADMINSTRATOR")) return message.reply("*لا تملك الصلاحيات المطلوبه**");
-
-message.channel.send(args.join("  "))
+  if (command == "+say") {
+   message.channel.sendMessage(args.join("  "))
+   message.delete()
   }
+ });
 
-
-
-});
 
 //---------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------
