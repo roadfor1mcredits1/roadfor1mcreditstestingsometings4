@@ -3,6 +3,7 @@ var ChannelID = "501707191951163393";// اي دي الروم
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const prefix = '+';
 
 
 client.on('message', message => {
@@ -14,7 +15,7 @@ client.on('message', message => {
 
   let args = message.content.split(" ").slice(1);
 
-  if (command == "+say") {
+  if (command == "say") {
    message.channel.sendMessage(args.join("  "))
    message.delete()
   }
